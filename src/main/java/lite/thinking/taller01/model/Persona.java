@@ -15,7 +15,7 @@ public class Persona {
     /**
      * Método que simula la compra de un pase de estacionamiento.
      */
-    public void comprarPaseEstacionamiento() {
-        System.out.println(nombre + " ha comprado un pase de estacionamiento.");
+    public String comprarPaseEstacionamiento() {
+        return nombre + " ha comprado un pase de estacionamiento.";
     }
 }
