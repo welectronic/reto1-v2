@@ -1,10 +1,12 @@
 package lite.thinking.taller01.repository;
 
 import lite.thinking.taller01.model.Estudiante;
+import lite.thinking.taller01.model.Direccion;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Repositorio en memoria para gestionar estudiantes.
@@ -47,6 +49,7 @@ public class RepositorioEstudiante {
             Estudiante estudiante = new Estudiante();
             estudiante.setNumeroEstudiante(i);
             estudiante.setNombre("Estudiante " + i);
+            estudiante.setDireccion(generarDireccionAleatoria());
             estudiante.setNumeroCelular("30012345" + i);
             estudiante.setCorreoElectronico("estudiante" + i + "@ejemplo.com");
             estudiante.setPromedioNotas(3.0 + (i * 0.1)); // Generar un promedio diferente para cada estudiante
@@ -54,5 +57,19 @@ public class RepositorioEstudiante {
             estudiante.setSeminariosTomados(List.of("Seminario 1", "Seminario 2"));
             agregarEstudiante(estudiante);
         }
+    }
+
+    /**
+     * Método para generar una dirección aleatoria
+     */
+    private Direccion generarDireccionAleatoria() {
+        Random r = new Random();
+        Direccion direccion = new Direccion();
+        direccion.setDireccion("Calle " + r.nextInt(1000));
+        direccion.setCiudad("Ciudad " + r.nextInt(100));
+        direccion.setEstado("Estado " + r.nextInt(100));
+        direccion.setCodigoPostal("CP " + r.nextInt(100));
+        direccion.setPais("País " + r.nextInt(100));
+        return direccion;
     }
 }
