@@ -1,0 +1,32 @@
+@startuml reto1
+class Persona {
+    + String nombre
+    + String numeroCelular
+    + String correoElectronico
+    + comprarPaseEstacionamiento() : void
+}
+
+class Direccion {
+    + String direccion
+    + String ciudad
+    + String estado
+    + String codigoPostal
+    + String pais
+}
+
+class Estudiante {
+    + int numeroEstudiante
+    + double promedioNotas
+    + List<String> listadoAsignaturas
+    + List<String> seminariosTomados
+}
+
+class Profesor {
+    + double salario
+    + List<String> materiasDictadas
+}
+
+Persona "1" --> "1" Direccion : vive en
+Persona <|-- Estudiante
+Persona <|-- Profesor
+@enduml
